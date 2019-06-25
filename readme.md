@@ -12,5 +12,7 @@ db.[name_collection].update(<filter>, <update>, <option>)
 db.[name_colleciton].updateMany(<filter>, { $set: <update> }, <options>)
 ```
 # DELETE
+```
 db.[name_collection].deleteOne(<filter>, <options>);
 db.[name_collection].deleteMany(<filter>, <options>);
+```
