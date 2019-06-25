@@ -5,6 +5,7 @@ const uri      = 'mongodb://localhost:27017/mern_stack_0106';
 const app = express();
 
 const { Docs } = require('./models/docs');
+const { Users } = require('./models/user');
 
 app.get('/', async (req, res) => {
     // Docs.find({})   
@@ -15,6 +16,15 @@ app.get('/', async (req, res) => {
         res.json({ listDocs });
     } catch (error) {
         res.json({ error })
+    }
+});
+
+app.get('/user', async (req, res) => {
+    try {
+        let listUser = await Users.find({});
+        res.json({ listUser });
+    } catch (error) {
+        res.json({ error });
     }
 });
 
