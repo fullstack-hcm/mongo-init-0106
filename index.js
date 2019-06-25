@@ -9,7 +9,7 @@ const { Docs } = require('./models/docs');
 app.get('/', async (req, res) => {
     // Docs.find({})   
     //     .then(list => res.json(list))
-    //     .catch(err => res.json({ err }));
+    //     .catch(err => res.json({ err })); //hello
     try {
         let listDocs = await Docs.find({});
         res.json({ listDocs });
