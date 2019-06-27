@@ -12,6 +12,15 @@ const { Docs }  = require('./models/docs');
 const { Users } = require('./models/user');
 const { Post }  = require('./models/posts');
 
+/**
+ * import routers
+ */
+const { CATEGORY_ROUTERS } = require('./routes/category');
+const { PRODUCT_ROUTERS } = require('./routes/product');
+
+app.use('/category', CATEGORY_ROUTERS);
+app.use('/product', PRODUCT_ROUTERS);
+
 app.get('/', async (req, res) => {
     // Docs.find({})   
     //     .then(list => res.json(list))
@@ -64,7 +73,7 @@ app.post('/post-update/:postID', async (req, res) => {
 app.get('/post-remove/:postID', async (req, res) => {
     const { postID } = req.params;
     let resultAfterDelete = await Post.findByIdAndRemove(postID);
-    res.json({ resultAfterDelete })
+    res.json({ resultAfterDelete });
 })
 
 // app.get('/user/:userID', (req, res) => {
